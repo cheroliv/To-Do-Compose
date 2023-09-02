@@ -1,20 +1,17 @@
 buildscript {
-    ext {
-        compose_version = '1.4.3'
-    }
+    ext { compose_version = "1.4.3" }
+//    ext { compose_version = "1.5.0" }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath( "com.android.tools.build:gradle:8.0.2")
-        classpath ("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
-        classpath ("com.google.dagger:hilt-android-gradle-plugin:2.48")
+        classpath("com.android.tools.build:gradle:8.0.2")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:2.48")
     }
 }
-plugins {
-    id 'com.google.devtools.ksp' version '1.8.10-1.0.9' apply false
-}
+
 tasks.register('clean', Delete) {
-    delete (rootProject.buildDir)
+    delete(rootProject.buildDir)
 }
