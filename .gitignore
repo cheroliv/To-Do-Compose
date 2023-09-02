@@ -15,3 +15,5 @@
 local.properties
 .idea
 *.code-workspace
+todo-compose-ide-template.tar
+todo-compose-ide-template
