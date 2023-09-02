@@ -5,5 +5,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "To-Do Compose"
+rootProject.name = "to-do-compose"
 include ':app'
