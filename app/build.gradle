@@ -1,3 +1,5 @@
+import static org.gradle.api.JavaVersion.VERSION_17
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -6,16 +8,15 @@ plugins {
 }
 
 android {
-    namespace "com.example.to_docompose"
-    compileSdk 34
+    namespace("com.example.to_docompose")
+    compileSdk(34)
     defaultConfig {
-        applicationId "com.example.to_docompose"
-        minSdk 21
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId("com.example.to_docompose")
+        minSdk(21)
+        targetSdk(34)
+        versionCode(1)
+        versionName("1.0")
+        testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
         vectorDrawables {
             useSupportLibrary true
         }
@@ -23,22 +24,22 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled(false)
+            proguardFiles(getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro')
         }
     }
     compileOptions {
-        sourceCompatibility(JavaVersion.VERSION_17)
-        targetCompatibility(JavaVersion.VERSION_17)
+        sourceCompatibility(VERSION_17)
+        targetCompatibility(VERSION_17)
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = VERSION_17.toString()
     }
     buildFeatures {
-        compose true
+        compose(true)
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion(compose_version)
     }
     packagingOptions {
         resources {
