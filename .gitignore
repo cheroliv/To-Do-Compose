@@ -7,7 +7,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-.idea
+/.idea/
 *.code-workspace
 todo-compose-ide-template.tar
 todo-compose-ide-template
