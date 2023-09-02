@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.devtools.ksp'
 }
 
 android {
@@ -74,7 +75,8 @@ dependencies {
     // Room components
     implementation("androidx.room:room-runtime:2.5.2")
     //noinspection KaptUsageInsteadOfKsp
-    kapt("androidx.room:room-compiler:2.5.2")
+//    kapt("androidx.room:room-compiler:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
 
     // DataStore Preferences
