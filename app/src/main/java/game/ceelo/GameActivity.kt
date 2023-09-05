@@ -1,4 +1,4 @@
-package game.ceelo
+ package game.ceelo
 
 //import game.ceelo.databinding.ActivityGameBinding
 //import game.ceelo.databinding.ActivityGameBinding.inflate
@@ -17,6 +17,7 @@ class GameActivity : AppCompatActivity() {
         getViewModel<GameViewModel>()//.loadLocalGame(this)
     }
 }
+
 fun runDiceAnimation(
     diceImage: ImageView,
     diceValue: Int,

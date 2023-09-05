@@ -49,7 +49,6 @@ class DataStoreRepository @Inject constructor(
             val sortState = preferences[PreferenceKeys.sortKey] ?: Priority.NONE.name
             sortState
         }
-
 }
 
 

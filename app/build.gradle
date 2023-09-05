@@ -53,7 +53,8 @@ android {
         resources {
             excludes += [
                     "/META-INF/{AL2.0,LGPL2.1}",
-                    "META-INF/atomicfu.kotlin_module"
+                    "META-INF/atomicfu.kotlin_module",
+                    "META-INF/INDEX.LIST",
             ]
         }
     }

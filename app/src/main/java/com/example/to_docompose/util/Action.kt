@@ -1,5 +1,8 @@
 package com.example.to_docompose.util
 
+import com.example.to_docompose.util.Action.NO_ACTION
+import com.example.to_docompose.util.Action.valueOf
+
 enum class Action {
     ADD,
     UPDATE,
@@ -9,6 +12,7 @@ enum class Action {
     NO_ACTION
 }
 
-fun String?.toAction(): Action {
-    return if (this.isNullOrEmpty()) Action.NO_ACTION else Action.valueOf(this)
+fun String?.toAction(): Action = when {
+    isNullOrEmpty() -> NO_ACTION
+    else -> valueOf(this)
 }

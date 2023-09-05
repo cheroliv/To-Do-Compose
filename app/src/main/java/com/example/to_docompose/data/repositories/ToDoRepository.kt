@@ -1,7 +1,7 @@
 package com.example.to_docompose.data.repositories
 
-import com.example.to_docompose.data.ToDoDao
 import com.example.to_docompose.data.models.ToDoTask
+import com.example.to_docompose.data.models.ToDoTask.ToDoDao
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

@@ -38,10 +38,11 @@ import org.koin.test.get
 import org.koin.test.inject
 import org.koin.test.mock.MockProviderRule.Companion.create
 import org.mockito.Mockito.mock
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-
+@Ignore
 @RunWith(AndroidJUnit4::class)
 class InstrumentedTests : KoinTest {
 

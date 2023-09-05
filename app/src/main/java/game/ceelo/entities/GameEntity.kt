@@ -1,5 +1,7 @@
 package game.ceelo.entities
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.room.*
 import java.time.ZonedDateTime
 import java.time.ZonedDateTime.now
@@ -11,7 +13,7 @@ import java.util.*
         Index("isOffLineGame"),
     ]
 )
-data class GameEntity(
+data class GameEntity @RequiresApi(Build.VERSION_CODES.O) constructor(
     @PrimaryKey
     val id: Int,
     val winnerPlayerId: Int,
