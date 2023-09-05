@@ -1,6 +1,8 @@
 package game.ceelo
 
 import android.app.Application
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.room.*
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase.Callback
@@ -16,7 +18,7 @@ import game.ceelo.entities.GameEntity.GameDao
 import game.ceelo.entities.PlayerEntity
 import game.ceelo.entities.PlayerEntity.PlayerDao
 import game.ceelo.entities.PlayerEntity.PlayerDao.Companion.checkDefaultPlayers
-import org.koin.android.ext.android.get
+//import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -43,7 +45,8 @@ class CeeLoApp : Application() {
             modules(module {
                 singleOf(::CeeloServiceAndroid) { bind<CeeloService>() }
                 viewModelOf(::GameViewModel)
-                single {
+                @Suppress("RemoveExplicitTypeArguments")
+                single<Database>() {
                     databaseBuilder(
                         get(),
                         Database::class.java,
@@ -75,25 +78,31 @@ class CeeLoApp : Application() {
         abstract fun playerDao(): PlayerDao
 
         object TypesConverter {
+            @RequiresApi(Build.VERSION_CODES.O)
             @JvmStatic
             @TypeConverter
-            fun fromZonedDateTime(value: ZonedDateTime?): Long? = value?.fromDateTime
+            fun fromZonedDateTime(value: ZonedDateTime?)
+            : Long? = value?.fromDateTime
 
+            @RequiresApi(Build.VERSION_CODES.O)
             @JvmStatic
             @TypeConverter
-            fun toZonedDateTime(value: Long?): ZonedDateTime? = value?.toDateTime
+            fun toZonedDateTime(value: Long?)
+            : ZonedDateTime? = value?.toDateTime
         }
 
         object TypeUtils {
             val ZonedDateTime.fromDateTime: Long?
+                @RequiresApi(Build.VERSION_CODES.O)
                 get() = toInstant()?.toEpochMilli()
             val Long.toDateTime: ZonedDateTime?
+                @RequiresApi(Build.VERSION_CODES.O)
                 get() = ofEpochMilli(this)
                     .atZone(systemDefault())
         }
 
         companion object {
-            const val DB_NAME = "ceelo.db"
+            const val DB_NAME = "todo.db"
         }
     }
 }

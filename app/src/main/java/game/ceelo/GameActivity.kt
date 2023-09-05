@@ -3,14 +3,11 @@ package game.ceelo
 //import game.ceelo.databinding.ActivityGameBinding
 //import game.ceelo.databinding.ActivityGameBinding.inflate
 import android.os.Bundle
-import android.view.animation.Animation.RELATIVE_TO_SELF
+import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import game.ceelo.GameResult.LOOSE
-import game.ceelo.GameResult.RERUN
-import game.ceelo.GameResult.WIN
 import game.ceelo.Hand.getDiceImageFromDiceValue
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -18,6 +15,36 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getViewModel<GameViewModel>()//.loadLocalGame(this)
+    }
+}
+fun runDiceAnimation(
+    diceImage: ImageView,
+    diceValue: Int,
+    diceImages: List<Int>
+) = diceImage.apply {
+    setImageResource(diceImages.getDiceImageFromDiceValue(diceValue))
+}.run {
+    startAnimation(
+        RotateAnimation(
+            0f,
+            360f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        ).apply { duration = 500 })
+}
+
+fun setTextViewResult(
+    textViewResult: TextView,
+    diceResult: GameResult,
+    textViewVisibility: Int
+): TextView = textViewResult.apply {
+    visibility = textViewVisibility
+    text = when (diceResult) {
+        GameResult.WIN -> GameResult.WIN.toString()
+        GameResult.LOOSE -> GameResult.LOOSE.toString()
+        else -> GameResult.RERUN.toString()
     }
 }
 
@@ -46,33 +73,3 @@ class GameActivity : AppCompatActivity() {
 //val ActivityGameBinding.resultUI: List<TextView>
 //    get() = listOf(localPlayerResult, computerResult)
 
-fun runDiceAnimation(
-    diceImage: ImageView,
-    diceValue: Int,
-    diceImages: List<Int>
-) = diceImage.apply {
-    setImageResource(diceImages.getDiceImageFromDiceValue(diceValue))
-}.run {
-    startAnimation(
-        RotateAnimation(
-            0f,
-            360f,
-            RELATIVE_TO_SELF,
-            0.5f,
-            RELATIVE_TO_SELF,
-            0.5f
-        ).apply { duration = 500 })
-}
-
-fun setTextViewResult(
-    textViewResult: TextView,
-    diceResult: GameResult,
-    textViewVisibility: Int
-): TextView = textViewResult.apply {
-    visibility = textViewVisibility
-    text = when (diceResult) {
-        WIN -> WIN.toString()
-        LOOSE -> LOOSE.toString()
-        else -> RERUN.toString()
-    }
-}
