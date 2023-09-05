@@ -9,6 +9,10 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
         classpath("com.google.dagger:hilt-android-gradle-plugin:2.48")
     }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
+        classpath("org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin:1.8.10")
+    }
 }
 
 tasks.register('clean', Delete) { delete(rootProject.buildDir) }
