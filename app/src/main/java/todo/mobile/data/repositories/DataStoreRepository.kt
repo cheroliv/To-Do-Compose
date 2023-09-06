@@ -7,10 +7,10 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import todo.mobile.data.models.Priority
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import todo.mobile.data.models.Priority
 import todo.mobile.util.Constants.PREFERENCE_KEY
 import todo.mobile.util.Constants.PREFERENCE_NAME
 import java.io.IOException
@@ -18,7 +18,7 @@ import java.io.IOException
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREFERENCE_NAME)
 
 
-class DataStoreRepository (val context: Context) {
+class DataStoreRepository (private val context: Context) {
 
     private object PreferenceKeys {
         val sortKey = stringPreferencesKey(name = PREFERENCE_KEY)

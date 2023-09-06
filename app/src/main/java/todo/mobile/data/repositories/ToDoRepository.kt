@@ -1,13 +1,10 @@
 package todo.mobile.data.repositories
 
+import kotlinx.coroutines.flow.Flow
 import todo.mobile.data.models.ToDoTask
 import todo.mobile.data.models.ToDoTask.ToDoDao
-import kotlinx.coroutines.flow.Flow
 
-class ToDoRepository(
-    @Suppress("MemberVisibilityCanBePrivate")
-    val toDoDao: ToDoDao
-) {
+class ToDoRepository(private val toDoDao: ToDoDao) {
 
     val getAllTasks: Flow<List<ToDoTask>> = toDoDao.getAllTasks()
     val sortByLowPriority: Flow<List<ToDoTask>> = toDoDao.sortByLowPriority()

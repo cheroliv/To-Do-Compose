@@ -1,16 +1,17 @@
 package todo.mobile
 
+import android.content.Context
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase.Callback
 import androidx.sqlite.db.SupportSQLiteDatabase
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
+import todo.mobile.ToDoApplication.ToDoDatabase
 import todo.mobile.data.repositories.DataStoreRepository
 import todo.mobile.data.repositories.ToDoRepository
 import todo.mobile.ui.viewmodels.SharedViewModel
 import todo.mobile.util.Constants.DATABASE_NAME
-
 object Modules {
     val appModule = module {
         singleOf(::DataStoreRepository)
@@ -19,7 +20,7 @@ object Modules {
         single {
             databaseBuilder(
                 get(),
-                ToDoApplication.ToDoDatabase::class.java,
+                ToDoDatabase::class.java,
                 DATABASE_NAME
             ).addCallback(object : Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
@@ -30,5 +31,7 @@ object Modules {
                 }
             }).build()
         }
+        single { get<ToDoDatabase>().toDoDao() }
+        single { get<Context>() }
     }
 }
