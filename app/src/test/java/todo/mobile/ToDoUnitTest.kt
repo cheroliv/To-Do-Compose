@@ -1,10 +1,11 @@
 package todo.mobile
 
-import org.junit.Assert
-import org.junit.Test
+
 import org.koin.core.annotation.KoinExperimentalAPI
 import org.koin.test.KoinTest
 import org.koin.test.verify.verify
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ToDoUnitTest : KoinTest {
 
@@ -15,6 +16,6 @@ class ToDoUnitTest : KoinTest {
 
     @Test
     fun addition_isCorrect() {
-        Assert.assertEquals(4, 2 + 2)
+        assertEquals(4, 2 + 2)
     }
 }

@@ -19,7 +19,7 @@ object Modules {
         single {
             databaseBuilder(
                 get(),
-                TodoApplication.ToDoDatabase::class.java,
+                ToDoApplication.ToDoDatabase::class.java,
                 DATABASE_NAME
             ).addCallback(object : Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
