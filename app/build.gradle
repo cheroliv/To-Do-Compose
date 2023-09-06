@@ -4,15 +4,14 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
-    namespace("com.example.to_docompose")
+    namespace("todo.mobile")
     compileSdk(34)
     defaultConfig {
-        applicationId("com.example.to_docompose")
+        applicationId("todo.mobile")
         minSdk(21)
         targetSdk(34)
         versionCode(1)
@@ -108,10 +107,6 @@ dependencies {
     // DataStore Preferences
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
-    // Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
-
     // Splash API
     implementation("androidx.core:core-splashscreen:1.0.1")
 
@@ -120,6 +115,7 @@ dependencies {
     implementation("io.insert-koin:koin-android:3.4.3")
     implementation("io.insert-koin:koin-androidx-workmanager:3.4.3")
     implementation("io.insert-koin:koin-androidx-navigation:3.4.3")
+    implementation "io.insert-koin:koin-androidx-compose:3.4.3"
 
     testImplementation("io.insert-koin:koin-test:3.4.3")
     testImplementation("io.insert-koin:koin-test-junit4:3.4.3")

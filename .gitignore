@@ -11,3 +11,4 @@ local.properties
 *.code-workspace
 todo-compose-ide-template.tar
 todo-compose-ide-template
+tmp
