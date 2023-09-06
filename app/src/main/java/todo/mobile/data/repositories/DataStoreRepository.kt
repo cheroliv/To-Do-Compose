@@ -18,7 +18,7 @@ import java.io.IOException
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREFERENCE_NAME)
 
 
-class DataStoreRepository (private val context: Context) {
+class DataStoreRepository(private val context: Context) {
 
     private object PreferenceKeys {
         val sortKey = stringPreferencesKey(name = PREFERENCE_KEY)

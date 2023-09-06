@@ -12,11 +12,9 @@ import todo.mobile.data.repositories.DataStoreRepository
 import todo.mobile.data.repositories.ToDoRepository
 import todo.mobile.ui.viewmodels.SharedViewModel
 import todo.mobile.util.Constants.DATABASE_NAME
+
 object Modules {
     val appModule = module {
-        singleOf(::DataStoreRepository)
-        singleOf(::ToDoRepository)
-        viewModelOf(::SharedViewModel)
         single {
             databaseBuilder(
                 get(),
@@ -33,5 +31,8 @@ object Modules {
         }
         single { get<ToDoDatabase>().toDoDao() }
         single { get<Context>() }
+        singleOf(::DataStoreRepository)
+        singleOf(::ToDoRepository)
+        viewModelOf(::SharedViewModel)
     }
 }

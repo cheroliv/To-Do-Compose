@@ -20,7 +20,7 @@ fun PriorityItem(priority: Priority) {
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Canvas(modifier = Modifier.size(PRIORITY_INDICATOR_SIZE)){
+        Canvas(modifier = Modifier.size(PRIORITY_INDICATOR_SIZE)) {
             drawCircle(color = priority.color)
         }
         Text(
@@ -35,6 +35,6 @@ fun PriorityItem(priority: Priority) {
 
 @Composable
 @Preview
-fun PriorityItemPreview(){
+fun PriorityItemPreview() {
     PriorityItem(priority = Priority.HIGH)
 }

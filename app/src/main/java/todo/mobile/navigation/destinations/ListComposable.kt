@@ -35,7 +35,7 @@ fun NavGraphBuilder.listComposable(
         var myAction by rememberSaveable { mutableStateOf(Action.NO_ACTION) }
 
         LaunchedEffect(key1 = myAction) {
-            if(action != myAction){
+            if (action != myAction) {
                 myAction = action
                 sharedViewModel.updateAction(newAction = action)
             }

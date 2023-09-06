@@ -45,6 +45,6 @@ fun EmptyContent() {
 
 @Composable
 @Preview
-private fun EmptyContentPreview(){
+private fun EmptyContentPreview() {
     EmptyContent()
 }

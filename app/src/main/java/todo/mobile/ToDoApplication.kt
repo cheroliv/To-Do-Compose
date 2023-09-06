@@ -7,6 +7,7 @@ import androidx.room.TypeConverters
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import todo.mobile.Modules.appModule
 import todo.mobile.data.models.ToDoTask
 import todo.mobile.data.models.ToDoTask.ToDoDao
 import todo.mobile.util.TypesConverter
@@ -18,7 +19,7 @@ class ToDoApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@ToDoApplication)
-            modules(Modules.appModule)
+            modules(appModule)
         }
     }
 

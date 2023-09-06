@@ -21,7 +21,7 @@ import todo.mobile.util.Constants
 import todo.mobile.util.RequestState
 import todo.mobile.util.SearchAppBarState
 
-class SharedViewModel (
+class SharedViewModel(
     private val repository: ToDoRepository,
     private val dataStoreRepository: DataStoreRepository
 ) : ViewModel() {
@@ -181,18 +181,23 @@ class SharedViewModel (
             Action.ADD -> {
                 addTask()
             }
+
             Action.UPDATE -> {
                 updateTask()
             }
+
             Action.DELETE -> {
                 deleteTask()
             }
+
             Action.DELETE_ALL -> {
                 deleteAllTasks()
             }
+
             Action.UNDO -> {
                 addTask()
             }
+
             else -> {
 
             }

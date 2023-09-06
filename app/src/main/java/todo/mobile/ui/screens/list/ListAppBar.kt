@@ -33,10 +33,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
+import todo.mobile.R
 import todo.mobile.components.DisplayAlertDialog
 import todo.mobile.components.PriorityItem
 import todo.mobile.data.models.Priority
-import todo.mobile.R
 import todo.mobile.ui.theme.LARGE_PADDING
 import todo.mobile.ui.theme.TOP_APP_BAR_HEIGHT
 import todo.mobile.ui.theme.Typography
@@ -66,6 +66,7 @@ fun ListAppBar(
                 }
             )
         }
+
         else -> {
             SearchAppBar(
                 text = searchTextState,
